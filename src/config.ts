@@ -32,6 +32,7 @@ export const config = {
 		webhookSecret: process.env.WEBHOOK_SECRET!,
 		privateKey: readPrivateKey(),
 		reviewCommand: process.env.REVIEW_COMMAND || "!review",
+        planCommand: process.env.PLAN_COMMAND || '!plan', // 新しいプランニングコマンド
 	},
 	gemini: {
 		apiKey: process.env.GEMINI_API_KEY!,

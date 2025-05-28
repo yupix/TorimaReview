@@ -1,5 +1,5 @@
 # ステージ1: ビルド環境
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /usr/src/app
 COPY package*.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install
@@ -7,7 +7,7 @@ COPY . .
 RUN pnpm run build
 
 # ステージ2: 実行環境
-FROM node:18-alpine
+FROM node:24-alpine
 WORKDIR /usr/src/app
 COPY package*.json pnpm-lock.yaml ./
 # 本番では開発用の依存関係は不要な場合が多いので --prod

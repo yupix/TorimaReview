@@ -13,6 +13,7 @@ COPY package*.json pnpm-lock.yaml ./
 # 本番では開発用の依存関係は不要な場合が多いので --prod
 RUN npm install -g pnpm && pnpm install --prod
 COPY --from=builder /usr/src/app/dist ./dist
+COPY --from=builder /usr/src/app/personas ./personas
 
 # GitHub Appの秘密鍵をコンテナ内にコピーする場合 (非推奨だがローカルテストなどではありうる)
 # COPY your-private-key.pem ./your-private-key.pem

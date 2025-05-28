@@ -1,4 +1,4 @@
-import { GitHubService, PullRequestDetails, Comment } from "./github_service";
+import { GitHubService, PullRequestDetails, ReviewComment } from "./github_service";
 import { GeminiService } from "./gemini_service";
 import { PersonaService } from "./persona_service";
 import { config } from "../config"; // デフォルト人格名などにアクセスするため
@@ -60,7 +60,7 @@ export class ReviewService {
 				return;
 			}
 
-			const existingComments: Comment[] =
+			const existingComments: ReviewComment[] =
 				await this.githubService.listReviewComments(
 					installationId,
 					owner,
